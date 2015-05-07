@@ -99,7 +99,7 @@ This package contains syntax highlighting for Google Protocol Buffers
 descriptions in Vim editor
 
 %prep
-%setup -q -n %{name}-%{version}/%{name}
+%setup -q -n %{name}-%{version}
 chmod 644 examples/*
 
 #%patch3 -p1 -b .generic-atomics
