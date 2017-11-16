@@ -1,11 +1,11 @@
 Summary:        Protocol Buffers - Google's data interchange format
 Name:           protobuf
-Version:        2.5.0
+Version:        2.6.1
 Release:        1%{?dist}
 License:        BSD
 Group:          Development/Libraries
 Source:         https://github.com/google/protobuf/releases/download/v%{version}/protobuf-%{version}.tar.bz2
-Source1:        ftdetect-proto.vim
+#Source1:        proto.vim
 #Patch3:         0001-Add-generic-GCC-support-for-atomic-operations.patch
 #Patch4:         protobuf-2.5.0-makefile.patch
 URL:            https://github.com/google/protobuf
@@ -122,7 +122,6 @@ rm -rf %{buildroot}
 make %{?_smp_mflags} install DESTDIR=%{buildroot} STRIPBINARIES=no INSTALL="%{__install} -p" CPPROG="cp -p"
 find %{buildroot} -type f -name "*.la" -exec rm -f {} \;
 
-install -p -m 644 -D %{SOURCE1} %{buildroot}%{_datadir}/vim/vimfiles/ftdetect/proto.vim
 install -p -m 644 -D editors/proto.vim %{buildroot}%{_datadir}/vim/vimfiles/syntax/proto.vim
 
 %post -p /sbin/ldconfig
@@ -137,13 +136,13 @@ install -p -m 644 -D editors/proto.vim %{buildroot}%{_datadir}/vim/vimfiles/synt
 %files
 %defattr(-, root, root, -)
 %{_libdir}/libprotobuf.so.*
-%doc CHANGES.txt CONTRIBUTORS.txt COPYING.txt README.txt
+%doc CHANGES.txt CONTRIBUTORS.txt README.md
 
 %files compiler
 %defattr(-, root, root, -)
 %{_bindir}/protoc
 %{_libdir}/libprotoc.so.*
-%doc COPYING.txt README.txt
+%doc README.md
 
 %files devel
 %defattr(-, root, root, -)
@@ -174,5 +173,4 @@ install -p -m 644 -D editors/proto.vim %{buildroot}%{_datadir}/vim/vimfiles/synt
 
 %files vim
 %defattr(-, root, root, -)
-%{_datadir}/vim/vimfiles/ftdetect/proto.vim
 %{_datadir}/vim/vimfiles/syntax/proto.vim
