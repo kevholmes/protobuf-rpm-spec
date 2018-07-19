@@ -1,10 +1,10 @@
 Summary:        Protocol Buffers - Google's data interchange format
 Name:           protobuf
-Version:        2.6.1
+Version:        3.5.1
 Release:        1%{?dist}
 License:        BSD
 Group:          Development/Libraries
-Source:         https://github.com/google/protobuf/releases/download/v%{version}/protobuf-%{version}.tar.bz2
+Source:         https://github.com/google/protobuf/releases/download/v%{version}/protobuf-all-%{version}.tar.gz
 #Source1:        proto.vim
 #Patch3:         0001-Add-generic-GCC-support-for-atomic-operations.patch
 #Patch4:         protobuf-2.5.0-makefile.patch
@@ -151,7 +151,7 @@ install -p -m 644 -D editors/proto.vim %{buildroot}%{_datadir}/vim/vimfiles/synt
 %{_libdir}/libprotobuf.so
 %{_libdir}/libprotoc.so
 %{_libdir}/pkgconfig/protobuf.pc
-%doc examples/add_person.cc examples/addressbook.proto examples/list_people.cc examples/Makefile examples/README.txt
+%doc examples/add_person.cc examples/addressbook.proto examples/list_people.cc examples/Makefile
 
 %files static
 %defattr(-, root, root, -)
